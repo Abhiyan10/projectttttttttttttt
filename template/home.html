@@ -1,0 +1,43 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+
+<div class="login-container">
+  {% if user.is_authenticated %}
+  {% csrf_token %}
+  <p>hey there {{user.username}} want to do attendence?</p>
+
+  <p>Turn bluetooth <a href ="{% url 'bluetooth' %}"> on </a>    </p>
+  
+  <p> Please <a href="{% url 'logout' %}">logout </a> here </p>
+
+  <div>
+    Click to <a href="{% url 'refresh' %}">  refresh </a> present students.
+  </div>
+
+  {% else %}
+
+  
+  <a href="{% url 'login' %}">
+
+  {% endif %}
+ 
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
+
+{% endblock content %}
